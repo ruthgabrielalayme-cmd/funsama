@@ -1,7 +1,7 @@
-// Configuración de Firebase (REEMPLAZA con tus datos)
+// Configuración de Firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, orderBy, query } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, orderBy, query, where } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 // TU CONFIGURACIÓN DE FIREBASE (obtenerla de Firebase Console)
 const firebaseConfig = {
@@ -28,6 +28,26 @@ const logoutBtn = document.getElementById('logoutBtn');
 const proyectoForm = document.getElementById('proyectoForm');
 const proyectosContainer = document.getElementById('proyectosContainer');
 
+/**
+ * Verifica si un usuario es administrador consultando la colección 'admins' en Firestore.
+ * @param {object} user - El objeto de usuario de Firebase Auth.
+ * @returns {boolean} - True si el usuario es admin, false en caso contrario.
+ */
+async function esUsuarioAdmin(user) {
+    if (!user) return false;
+
+    try {
+        const adminsRef = collection(db, 'admins');
+        const q = query(adminsRef, where("uid", "==", user.uid));
+        const querySnapshot = await getDocs(q);
+
+        return !querySnapshot.empty; // Si no está vacío, el usuario es admin
+    } catch (error) {
+        console.error("Error al verificar permisos de administrador:", error);
+        return false;
+    }
+}
+
 // Login con Google
 googleLoginBtn.addEventListener('click', async () => {
     try {
@@ -49,14 +69,22 @@ logoutBtn.addEventListener('click', async () => {
 });
 
 // Detectar cambios en autenticación
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
-        // Usuario logueado
-        loginScreen.style.display = 'none';
-        adminPanel.style.display = 'block';
-        document.getElementById('userName').textContent = user.displayName;
-        document.getElementById('userPhoto').src = user.photoURL;
-        cargarProyectos();
+        const esAdmin = await esUsuarioAdmin(user);
+
+        if (esAdmin) {
+            // Usuario es administrador, mostrar panel
+            loginScreen.style.display = 'none';
+            adminPanel.style.display = 'block';
+            document.getElementById('userName').textContent = user.displayName;
+            document.getElementById('userPhoto').src = user.photoURL;
+            cargarProyectos();
+        } else {
+            // Usuario no es administrador, denegar acceso
+            alert('Acceso denegado. No tienes permisos para acceder a esta página.');
+            await signOut(auth);
+        }
     } else {
         // Usuario no logueado
         loginScreen.style.display = 'flex';
