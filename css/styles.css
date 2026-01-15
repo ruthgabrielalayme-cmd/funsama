@@ -1099,7 +1099,7 @@ footer {
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .hero-content h1,
     .page-hero-content h1 {
         font-size: 2rem;
@@ -1130,7 +1130,7 @@ footer {
     .nav-menu.active {
         display: flex;
     }
-    
+
     .nav-menu li {
         padding: 15px 0;
     }
@@ -1159,7 +1159,7 @@ footer {
     .galeria-thumbnails {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     /* --- Secciones Específicas --- */
     .intro-section,
     .omv-card,
@@ -1168,7 +1168,7 @@ footer {
     .fundadores-page .fundador-info {
         padding: 30px 20px;
     }
-    
+
     .fundadores-page .fundador-info h2,
     .omv-card h2 {
         font-size: 1.5rem;
@@ -1177,7 +1177,7 @@ footer {
     .como-nace-section h2 {
         font-size: 1.8rem;
     }
-    
+
     .cta-section h2 {
         font-size: 2rem;
     }
@@ -1186,17 +1186,17 @@ footer {
     footer {
         padding: 30px 20px;
     }
-    
+
     .footer-content {
         flex-direction: column;
         gap: 30px;
         text-align: center;
     }
-    
+
     .footer-left {
         flex-direction: column;
     }
-    
+
     .footer-right,
     .social-icons,
     .contact-info {
@@ -1213,7 +1213,7 @@ footer {
     .galeria-thumbnails {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .proyecto-card {
         gap: 0;
     }
@@ -1221,7 +1221,7 @@ footer {
     .proyecto-image {
         min-height: 200px;
     }
-    
+
     .proyecto-content {
         padding: 1.5rem;
     }
