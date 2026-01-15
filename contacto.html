@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Fundación Funsama</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -25,7 +26,7 @@
                 <li><a href="fundadores.html">FUNDADORES</a></li>
                 <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
                 <li><a href="proyectos.html">PROYECTOS</a></li>
-                <li><a href="contacto.html">CONTACTO</a></li>
+                <li><a href="contacto.html" class="active">CONTACTO</a></li>
             </ul>
         </div>
     </nav>
@@ -50,7 +51,9 @@
                     <h3>Información de Contacto</h3>
                     
                     <div class="info-item">
-                        <div class="info-icon"></div>
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <div class="info-text">
                             <h4>Dirección</h4>
                             <p>La Paz, Bolivia</p>
@@ -58,24 +61,29 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon"></div>
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
                         <div class="info-text">
                             <h4>Teléfono</h4>
-                            <p>+591 [Número de teléfono]</p>
+                            <p>+591 2911123</p>
                         </div>
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon"></div>
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div class="info-text">
                             <h4>Email</h4>
-                            <p>info@funsama.org</p>
-                            <p>contacto@funsama.org</p>
+                            <p>funsama.bo@gmail.com</p>
                         </div>
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon"></div>
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
                         <div class="info-text">
                             <h4>Horario de Atención</h4>
                             <p>Lunes a Viernes: 9:00 - 18:00</p>
@@ -84,12 +92,22 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon"></div>
+                        <div class="info-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
                         <div class="info-text">
                             <h4>Redes Sociales</h4>
-                            <p>Facebook: /FundacionFunsama</p>
-                            <p>Twitter: @FundacionFunsama</p>
-                            <p>Instagram: @fundacionfunsama</p>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/people/Fundaci%C3%B3n-Funsama/100083834513260/" target="_blank">
+                                    <i class="fab fa-facebook"></i> Facebook
+                                </a>
+                                <a href="https://www.instagram.com/funsama.bo/" target="_blank">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </a>
+                                <a href="https://www.tiktok.com/@fundacion_funsama" target="_blank">
+                                    <i class="fab fa-tiktok"></i> TikTok
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +115,7 @@
                 <!-- Formulario de Contacto -->
                 <div class="contacto-form">
                     <h3>Envíanos un Mensaje</h3>
-                    <form onsubmit="return validateForm(event)">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="nombre">Nombre completo *</label>
                             <input type="text" id="nombre" name="nombre" required>
@@ -120,41 +138,83 @@
 
                         <div class="form-group">
                             <label for="mensaje">Mensaje *</label>
-                            <textarea id="mensaje" name="mensaje" required></textarea>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mapa / Información Adicional -->
-    <section class="objetivos" style="background: #f9f9f9;">
+    <!-- Mapa de Google -->
+    <section class="mapa-section">
+        <div class="container">
+            <h2 class="section-title">Encuéntranos</h2>
+            <p class="section-subtitle">Nuestra ubicación en La Paz, Bolivia</p>
+            
+            <div class="mapa-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d239.08027451005998!2d-68.12623027116393!3d-16.511734102790186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f21a9806fe651%3A0xa1a8072332b3aa6a!2sOEE!5e0!3m2!1ses!2sus!4v1768499968147!5m2!1ses!2sus"
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formas de Colaborar -->
+    <section class="colaborar-section">
         <div class="container">
             <h2 class="section-title">Formas de Colaborar</h2>
             <div class="objetivos-grid">
-                <div class="objetivo-item">
-                    <div class="objetivo-icon"></div>
+                <div class="objetivo-card">
+                    <div class="objetivo-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
                     <h3>Voluntariado</h3>
-                    <p style="margin-top: 1rem;">Únete a nuestro equipo de voluntarios y contribuye directamente en nuestros proyectos.</p>
+                    <p>Únete a nuestro equipo de voluntarios y contribuye directamente en nuestros proyectos.</p>
                 </div>
-                <div class="objetivo-item">
-                    <div class="objetivo-icon"></div>
+                <div class="objetivo-card">
+                    <div class="objetivo-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <h3>Donaciones</h3>
-                    <p style="margin-top: 1rem;">Apoya financieramente nuestras iniciativas y ayúdanos a ampliar nuestro impacto.</p>
+                    <p>Apoya financieramente nuestras iniciativas y ayúdanos a ampliar nuestro impacto.</p>
                 </div>
-                <div class="objetivo-item">
-                    <div class="objetivo-icon"></div>
+                <div class="objetivo-card">
+                    <div class="objetivo-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
                     <h3>Alianzas</h3>
-                    <p style="margin-top: 1rem;">Trabaja con nosotros en proyectos conjuntos que beneficien a nuestras comunidades.</p>
+                    <p>Trabaja con nosotros en proyectos conjuntos que beneficien a nuestras comunidades.</p>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Footer -->
+    <!-- Modal de Confirmación -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>¡Mensaje Enviado!</h2>
+            <p>Gracias por contactarnos. Hemos recibido tu mensaje correctamente.</p>
+            <p class="modal-subtitle">Te responderemos a la brevedad posible.</p>
+            <button class="btn-modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i> Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
 <footer id="contacto">
     <div class="footer-content">
         <div class="footer-left">
@@ -189,7 +249,7 @@
     </div>
 </footer>
 
-
     <script src="js/script.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 </html>

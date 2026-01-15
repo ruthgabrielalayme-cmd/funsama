@@ -25,12 +25,14 @@
         <!-- Header -->
         <header class="admin-header">
             <div class="admin-header-content">
-                <img src="images/logo.png" alt="Logo">
+                <img src="images/logo.png" alt="Logo" class="header-logo">
                 <h2>Panel de Administración</h2>
                 <div class="user-info">
-                    <img id="userPhoto" src="" alt="Usuario">
+                    <img id="userPhoto" src="" alt="Usuario" class="user-photo">
                     <span id="userName"></span>
-                    <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+                    <button id="logoutBtn" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
                 </div>
             </div>
         </header>
@@ -38,62 +40,141 @@
         <!-- Contenido Principal -->
         <main class="admin-content">
             <div class="container">
-                <h2>Agregar Nuevo Proyecto</h2>
-                
-                <form id="proyectoForm" class="proyecto-form">
-                    <div class="form-group">
-                        <label for="titulo">Título del Proyecto *</label>
-                        <input type="text" id="titulo" required>
-                    </div>
+                <!-- Formulario de Proyecto -->
+                <div class="form-section">
+                    <h2 id="formTitle">
+                        <i class="fas fa-plus-circle"></i> Agregar Nuevo Proyecto
+                    </h2>
+                    
+                    <form id="proyectoForm" class="proyecto-form">
+                        <input type="hidden" id="proyectoId" value="">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="titulo">
+                                    Título del Proyecto *
+                                    <span class="help-text">La primera letra será automáticamente mayúscula</span>
+                                </label>
+                                <input type="text" id="titulo" class="capitalize-input" placeholder="Ingrese el título del proyecto" required>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="estado">Estado *</label>
-                        <select id="estado" required>
-                            <option value="">Seleccionar...</option>
-                            <option value="En curso">En curso</option>
-                            <option value="Planificado">Planificado</option>
-                            <option value="Completado">Completado</option>
-                        </select>
-                    </div>
+                            <div class="form-group">
+                                <label for="estado">Estado del Proyecto *</label>
+                                <select id="estado" required>
+                                    <option value="">Seleccionar estado...</option>
+                                    <option value="En curso">En curso</option>
+                                    <option value="Planificado">Planificado</option>
+                                    <option value="Completado">Completado</option>
+                                    <option value="Suspendido">Suspendido</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="fecha">Fecha/Periodo *</label>
-                        <input type="text" id="fecha" placeholder="Ej: 2024-2025" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="fecha">
+                                Fecha/Periodo *
+                                <span class="help-text">Formato sugerido: "Enero 2024", "2024-2025", "Marzo-Diciembre 2024"</span>
+                            </label>
+                            <input type="text" id="fecha" class="capitalize-input" placeholder="Ej: Enero 2024 o 2024-2025" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="descripcion">Descripción *</label>
-                        <textarea id="descripcion" rows="5" required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="descripcion">
+                                Descripción del Proyecto *
+                                <span class="help-text">Describa brevemente el proyecto y sus características principales</span>
+                            </label>
+                            <textarea id="descripcion" class="capitalize-input" rows="5" placeholder="Ingrese la descripción del proyecto..." required></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="objetivos">Objetivos (opcional)</label>
-                        <textarea id="objetivos" rows="4" placeholder="Un objetivo por línea"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="objetivos">
+                                Objetivos del Proyecto (opcional)
+                                <span class="help-text">Ingrese un objetivo por línea</span>
+                            </label>
+                            <textarea id="objetivos" class="capitalize-input" rows="4" placeholder="Objetivo 1&#10;Objetivo 2&#10;Objetivo 3"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="impacto">Impacto/Metas (opcional)</label>
-                        <textarea id="impacto" rows="3"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="impacto">
+                                Impacto/Metas Esperadas (opcional)
+                                <span class="help-text">Describa el impacto esperado del proyecto</span>
+                            </label>
+                            <textarea id="impacto" class="capitalize-input" rows="3" placeholder="Ingrese el impacto esperado..."></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="imagenUrl">URL de la Imagen *</label>
-                        <input type="url" id="imagenUrl" placeholder="https://ejemplo.com/imagen.jpg" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="imagenUrl">
+                                URL de la Imagen *
+                                <span class="help-text">Ingrese la URL completa de la imagen (debe incluir https://)</span>
+                            </label>
+                            <input type="url" id="imagenUrl" placeholder="https://ejemplo.com/imagen.jpg" required>
+                            <div class="image-preview-container" id="imagePreviewContainer" style="display: none;">
+                                <img id="imagePreview" src="" alt="Vista previa">
+                                <p>Vista previa de la imagen</p>
+                            </div>
+                        </div>
 
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-save"></i> Publicar Proyecto
-                    </button>
-                </form>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit" id="submitBtn">
+                                <i class="fas fa-save"></i> Publicar Proyecto
+                            </button>
+                            <button type="button" class="btn-cancel" id="cancelBtn" style="display: none;">
+                                <i class="fas fa-times"></i> Cancelar Edición
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Lista de Proyectos Publicados -->
                 <div class="proyectos-lista">
-                    <h2>Proyectos Publicados</h2>
-                    <div id="proyectosContainer"></div>
+                    <div class="lista-header">
+                        <h2>
+                            <i class="fas fa-list"></i> Proyectos Publicados
+                        </h2>
+                        <div class="filter-group">
+                            <label for="filterEstado">Filtrar por estado:</label>
+                            <select id="filterEstado">
+                                <option value="">Todos</option>
+                                <option value="En curso">En curso</option>
+                                <option value="Planificado">Planificado</option>
+                                <option value="Completado">Completado</option>
+                                <option value="Suspendido">Suspendido</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="proyectosContainer" class="proyectos-grid">
+                        <!-- Los proyectos se cargarán aquí dinámicamente -->
+                    </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Eliminación</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <i class="fas fa-exclamation-triangle warning-icon"></i>
+                <p>¿Está seguro que desea eliminar este proyecto?</p>
+                <p class="warning-text">Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel-modal" id="cancelDelete">Cancelar</button>
+                <button class="btn-delete-confirm" id="confirmDelete">
+                    <i class="fas fa-trash"></i> Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
 
     <!-- Firebase -->
     <script type="module" src="js/admin.js"></script>
