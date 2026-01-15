@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Fundación Funsama</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Pantalla de Login -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-box">
+            <img src="images/logo.png" alt="Logo Funsama">
+            <h1>Panel de Administración</h1>
+            <p>Fundación FUNSAMA</p>
+            <button id="googleLoginBtn" class="google-btn">
+                <i class="fab fa-google"></i> Iniciar sesión con Google
+            </button>
+        </div>
+    </div>
+
+    <!-- Panel de Administración (oculto inicialmente) -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <img src="images/logo.png" alt="Logo">
+                <h2>Panel de Administración</h2>
+                <div class="user-info">
+                    <img id="userPhoto" src="" alt="Usuario">
+                    <span id="userName"></span>
+                    <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="admin-content">
+            <div class="container">
+                <h2>Agregar Nuevo Proyecto</h2>
+                
+                <form id="proyectoForm" class="proyecto-form">
+                    <div class="form-group">
+                        <label for="titulo">Título del Proyecto *</label>
+                        <input type="text" id="titulo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado *</label>
+                        <select id="estado" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="En curso">En curso</option>
+                            <option value="Planificado">Planificado</option>
+                            <option value="Completado">Completado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha/Periodo *</label>
+                        <input type="text" id="fecha" placeholder="Ej: 2024-2025" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción *</label>
+                        <textarea id="descripcion" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objetivos">Objetivos (opcional)</label>
+                        <textarea id="objetivos" rows="4" placeholder="Un objetivo por línea"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="impacto">Impacto/Metas (opcional)</label>
+                        <textarea id="impacto" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagenUrl">URL de la Imagen *</label>
+                        <input type="url" id="imagenUrl" placeholder="https://ejemplo.com/imagen.jpg" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-save"></i> Publicar Proyecto
+                    </button>
+                </form>
+
+                <!-- Lista de Proyectos Publicados -->
+                <div class="proyectos-lista">
+                    <h2>Proyectos Publicados</h2>
+                    <div id="proyectosContainer"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

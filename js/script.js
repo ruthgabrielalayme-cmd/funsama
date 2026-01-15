@@ -156,3 +156,59 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Acceso secreto al panel de administración (Triple clic en el logo)
+let clickCount = 0;
+let clickTimer = null;
+
+const logo = document.querySelector('.logo');
+
+logo.addEventListener('click', () => {
+    clickCount++;
+    
+    if (clickCount === 1) {
+        clickTimer = setTimeout(() => {
+            clickCount = 0;
+        }, 500); // Se reinicia si pasan más de 500ms entre clics
+    }
+    
+    if (clickCount === 3) {
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        window.location.href = 'admin.html';
+    }
+});
+
+// Acceso secreto con feedback visual
+let clickCount = 0;
+let clickTimer = null;
+
+const logo = document.querySelector('.logo');
+
+logo.addEventListener('click', () => {
+    clickCount++;
+    
+    // Efecto visual al hacer clic
+    logo.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        logo.style.transform = 'scale(1)';
+    }, 100);
+    
+    if (clickCount === 1) {
+        clickTimer = setTimeout(() => {
+            clickCount = 0;
+        }, 500);
+    }
+    
+    if (clickCount === 3) {
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        
+        // Feedback antes de redirigir
+        logo.style.opacity = '0.5';
+        
+        setTimeout(() => {
+            window.location.href = 'admin.html';
+        }, 200);
+    }
+});

@@ -340,87 +340,599 @@ body {
     transform: scale(1.1);
 }
 
-/* Footer */
-footer {
+/* Page Hero (para páginas internas) */
+.page-hero {
+    height: 40vh;
+    min-height: 300px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
-    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.page-hero-content {
     text-align: center;
+    color: var(--white);
+    z-index: 1;
 }
 
-.footer-content img {
-    height: 80px;
+.page-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 20px;
-    filter: brightness(0) invert(1);
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-.footer-content h3 {
-    font-size: 1.8rem;
+.page-hero-content p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Fundadores Page */
+.fundadores-page {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.fundadores-page .fundadores-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fundadores-page .fundador-card {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 40px;
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fundadores-page .fundador-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.fundadores-page .fundador-card:nth-child(even) {
+    grid-template-columns: 1fr 400px;
+}
+
+.fundadores-page .fundador-card:nth-child(even) .fundador-image {
+    order: 2;
+}
+
+.fundadores-page .fundador-card:nth-child(even) .fundador-info {
+    order: 1;
+}
+
+.fundadores-page .fundador-image {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.fundadores-page .fundador-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.fundadores-page .fundador-card:hover .fundador-image img {
+    transform: scale(1.1);
+}
+
+.fundadores-page .fundador-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fundadores-page .fundador-info h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.fundadores-page .fundador-cargo {
+    margin-bottom: 25px;
+}
+
+.fundadores-page .badge {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.fundadores-page .fundador-descripcion h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.fundadores-page .fundador-descripcion p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.fundadores-page .fundador-descripcion ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.fundadores-page .fundador-descripcion ul li {
+    color: var(--text-light);
+    padding: 8px 0;
+    padding-left: 30px;
+    position: relative;
+}
+
+.fundadores-page .fundador-descripcion ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Visión Conjunta */
+.vision-conjunta {
+    margin-top: 100px;
+    text-align: center;
+    padding: 60px 40px;
+    background: var(--bg-light);
+    border-radius: 15px;
+}
+
+.vision-conjunta h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.vision-conjunta > p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    text-align: justify;
+}
+
+.valores-fundadores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.valor-item {
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.valor-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.valor-item i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.valor-item h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
-.footer-content p {
+.valor-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Link activo en navegación */
+.nav-menu li a.active {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Quiénes Somos Page */
+.quienes-somos-page {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.intro-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 40px;
+    background: var(--bg-light);
+    border-radius: 15px;
+}
+
+.intro-text {
     font-size: 1.1rem;
-    margin-bottom: 5px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 20px;
 }
 
-/* Cookie Notice */
-.cookie-notice {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(44, 95, 45, 0.95);
+.intro-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Grid OMV (Objetivo, Misión, Visión) */
+.omv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.omv-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--primary-color);
+}
+
+.omv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.objetivo-card {
+    border-top-color: #4CAF50;
+}
+
+.vision-card {
+    border-top-color: #2196F3;
+}
+
+.mision-card {
+    border-top-color: #FF9800;
+}
+
+.omv-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.omv-icon i {
+    font-size: 2.5rem;
     color: var(--white);
-    padding: 20px;
-    z-index: 2000;
-    display: none;
 }
 
-.cookie-notice.active {
+.omv-card h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.omv-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+/* Imagen Central */
+.imagen-central {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.imagen-central img {
+    width: 100%;
+    height: auto;
     display: block;
 }
 
-.cookie-content {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Cómo Nace la Fundación */
+.como-nace-section {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 50px;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(139, 195, 74, 0.05));
+    border-radius: 15px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.como-nace-section h2 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.como-nace-content p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.como-nace-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Valores Section */
+.valores-section {
+    margin-bottom: 80px;
+}
+
+.valores-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.valor-card {
+    background: var(--white);
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.valor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-color: var(--secondary-color);
+}
+
+.valor-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.valor-card:hover .valor-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.valor-icon i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    transition: color 0.3s;
+}
+
+.valor-card:hover .valor-icon i {
+    color: var(--white);
+}
+
+.valor-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.valor-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #2d5016 0%, #6b9d3e 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 40px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section h2 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.cta-section p {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: white;
+    color: #2d5016;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cta:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Footer */
+footer {
+    background-color: #2b2b2b;
+    color: white;
+    padding: 30px 50px;
+}
+
+.footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left {
+    display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.cookie-content p {
-    margin: 0;
-    font-size: 0.95rem;
+.footer-left img {
+    width: 80px;
+    height: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.cookie-buttons {
+.footer-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-info p {
+    margin: 2px 0;
+    font-size: 0.95rem;
+    color: #d0d0d0;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.social-icons {
     display: flex;
     gap: 15px;
+    justify-content: flex-end;
+    margin-bottom: 15px;
 }
 
-.btn-accept {
-    background: var(--secondary-color);
-    color: var(--white);
-    border: none;
-    padding: 10px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: #4a4a4a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.btn-accept:hover {
-    background: #7da348;
+.social-icons a:hover {
+    background-color: #6b9d3e;
+    transform: translateY(-3px);
 }
 
-.btn-more {
-    color: var(--white);
-    text-decoration: underline;
-    padding: 10px 20px;
+.contact-info {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
 }
+
+.contact-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info i {
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-left {
+        flex-direction: column;
+    }
+    
+    .footer-right {
+        text-align: center;
+    }
+    
+    .social-icons,
+    .contact-info {
+        justify-content: center;
+    }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -446,6 +958,14 @@ footer {
 
     .hero-content h1 {
         font-size: 2rem;
+    }
+
+    .page-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero-content p {
+        font-size: 1rem;
     }
 
     .image-gallery {
@@ -474,6 +994,101 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+
+    /* Fundadores Page Responsive */
+    .fundadores-page .fundadores-grid {
+        gap: 50px;
+    }
+
+    .fundadores-page .fundador-card,
+    .fundadores-page .fundador-card:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+
+    .fundadores-page .fundador-card:nth-child(even) .fundador-image,
+    .fundadores-page .fundador-card:nth-child(even) .fundador-info {
+        order: initial;
+    }
+
+    .fundadores-page .fundador-image {
+        min-height: 400px;
+    }
+
+    .fundadores-page .fundador-info {
+        padding: 30px 20px;
+    }
+
+    .fundadores-page .fundador-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .valores-fundadores {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Quiénes Somos Responsive */
+    .intro-section {
+        padding: 30px 20px;
+        margin-bottom: 50px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .omv-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .omv-card {
+        padding: 30px 20px;
+    }
+
+    .omv-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .imagen-central {
+        margin-bottom: 50px;
+    }
+
+    .como-nace-section {
+        padding: 30px 20px;
+        margin-bottom: 50px;
+    }
+
+    .como-nace-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .como-nace-content p {
+        font-size: 1rem;
+    }
+
+    .valores-section h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-section {
+        padding: 40px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -484,4 +1099,242 @@ footer {
     .galeria-thumbnails {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+/* Proyectos */
+.proyectos-section {
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+}
+
+.proyecto-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+.proyecto-image {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.proyecto-content {
+    padding: 2rem;
+}
+
+.proyecto-content h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.proyecto-content .fecha {
+    color: #667eea;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.proyecto-content p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Contacto */
+.contacto-section {
+    padding: 4rem 2rem;
+    background: white;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contacto-info {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.contacto-info h3 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    background: #667eea;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.info-text h4 {
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.info-text p {
+    color: #666;
+}
+
+.contacto-form {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.contacto-form h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+}
+/* Section títulos */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+footer .logo {
+    margin: 0 auto 1rem;
+    background: white;
+}
+
+footer h3 {
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proyecto-card {
+        grid-template-columns: 1fr;
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fundadores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .objetivos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.logo {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02);
 }

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Fundación Funsama</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Fundación Funsama">
+                <h2>Fundación Funsama</h2>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="fundadores.html">FUNDADORES</a></li>
+                <li><a href="quienes-somos.html">QUIÉNES SOMOS</a></li>
+                <li><a href="proyectos.html">PROYECTOS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section Pequeño -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>CONTACTO</h1>
+            <p>Estamos aquí para escucharte y colaborar contigo</p>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="contacto-section">
+        <div class="container">
+            <h2 class="section-title">Ponte en Contacto con Nosotros</h2>
+            <p class="section-subtitle">¿Tienes alguna pregunta, sugerencia o deseas colaborar con nosotros? Completa el formulario o utiliza nuestros datos de contacto.</p>
+
+            <div class="contacto-grid">
+                <!-- Información de Contacto -->
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"></div>
+                        <div class="info-text">
+                            <h4>Dirección</h4>
+                            <p>La Paz, Bolivia</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"></div>
+                        <div class="info-text">
+                            <h4>Teléfono</h4>
+                            <p>+591 [Número de teléfono]</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"></div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p>info@funsama.org</p>
+                            <p>contacto@funsama.org</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"></div>
+                        <div class="info-text">
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 9:00 - 18:00</p>
+                            <p>Sábados: 9:00 - 13:00</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"></div>
+                        <div class="info-text">
+                            <h4>Redes Sociales</h4>
+                            <p>Facebook: /FundacionFunsama</p>
+                            <p>Twitter: @FundacionFunsama</p>
+                            <p>Instagram: @fundacionfunsama</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="contacto-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form onsubmit="return validateForm(event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <input type="text" id="asunto" name="asunto" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa / Información Adicional -->
+    <section class="objetivos" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Formas de Colaborar</h2>
+            <div class="objetivos-grid">
+                <div class="objetivo-item">
+                    <div class="objetivo-icon"></div>
+                    <h3>Voluntariado</h3>
+                    <p style="margin-top: 1rem;">Únete a nuestro equipo de voluntarios y contribuye directamente en nuestros proyectos.</p>
+                </div>
+                <div class="objetivo-item">
+                    <div class="objetivo-icon"></div>
+                    <h3>Donaciones</h3>
+                    <p style="margin-top: 1rem;">Apoya financieramente nuestras iniciativas y ayúdanos a ampliar nuestro impacto.</p>
+                </div>
+                <div class="objetivo-item">
+                    <div class="objetivo-icon"></div>
+                    <h3>Alianzas</h3>
+                    <p style="margin-top: 1rem;">Trabaja con nosotros en proyectos conjuntos que beneficien a nuestras comunidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer id="contacto">
+    <div class="footer-content">
+        <div class="footer-left">
+            <img src="images/footer-logo.jpg" alt="Fundación FUNSAMA">
+            <div class="footer-info">
+                <h3>Fundación FUNSAMA</h3>
+                <p>La Paz, Bolivia.</p>
+                <p>2022</p>
+            </div>
+        </div>
+        
+        <div class="footer-right">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/people/Fundaci%C3%B3n-Funsama/100083834513260/" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/funsama.bo/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tuwebsite.com" target="_blank" aria-label="Sitio Web">
+                    <i class="fas fa-link"></i>
+                </a>
+                <a href="https://www.tiktok.com/@fundacion_funsama" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 2911123</p>
+                <p><i class="fas fa-envelope"></i> funsama.bo@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
