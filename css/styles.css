@@ -911,195 +911,6 @@ footer {
     font-size: 0.85rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-    }
-    
-    .footer-left {
-        flex-direction: column;
-    }
-    
-    .footer-right {
-        text-align: center;
-    }
-    
-    .social-icons,
-    .contact-info {
-        justify-content: center;
-    }
-}
-
-
-/* Responsive */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        display: none;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .page-hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .page-hero-content p {
-        font-size: 1rem;
-    }
-
-    .image-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .objetivos-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .galeria-item,
-    .galeria-item.reverse {
-        grid-template-columns: 1fr;
-    }
-
-    .galeria-item.reverse img,
-    .galeria-item.reverse .galeria-content {
-        order: initial;
-    }
-
-    .galeria-thumbnails {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cookie-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    /* Fundadores Page Responsive */
-    .fundadores-page .fundadores-grid {
-        gap: 50px;
-    }
-
-    .fundadores-page .fundador-card,
-    .fundadores-page .fundador-card:nth-child(even) {
-        grid-template-columns: 1fr;
-    }
-
-    .fundadores-page .fundador-card:nth-child(even) .fundador-image,
-    .fundadores-page .fundador-card:nth-child(even) .fundador-info {
-        order: initial;
-    }
-
-    .fundadores-page .fundador-image {
-        min-height: 400px;
-    }
-
-    .fundadores-page .fundador-info {
-        padding: 30px 20px;
-    }
-
-    .fundadores-page .fundador-info h2 {
-        font-size: 1.5rem;
-    }
-
-    .valores-fundadores {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* Quiénes Somos Responsive */
-    .intro-section {
-        padding: 30px 20px;
-        margin-bottom: 50px;
-    }
-
-    .intro-text {
-        font-size: 1rem;
-    }
-
-    .omv-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 50px;
-    }
-
-    .omv-card {
-        padding: 30px 20px;
-    }
-
-    .omv-card h2 {
-        font-size: 1.5rem;
-    }
-
-    .imagen-central {
-        margin-bottom: 50px;
-    }
-
-    .como-nace-section {
-        padding: 30px 20px;
-        margin-bottom: 50px;
-    }
-
-    .como-nace-section h2 {
-        font-size: 1.8rem;
-    }
-
-    .como-nace-content p {
-        font-size: 1rem;
-    }
-
-    .valores-section h2 {
-        font-size: 2rem;
-        margin-bottom: 40px;
-    }
-
-    .valores-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .cta-section {
-        padding: 40px 20px;
-    }
-
-    .cta-section h2 {
-        font-size: 2rem;
-    }
-
-    .cta-section p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .galeria-thumbnails {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 /* Proyectos */
 .proyectos-section {
     padding: 4rem 2rem;
@@ -1261,72 +1072,152 @@ footer {
     margin-bottom: 2rem;
     font-size: 1.1rem;
 }
-/* Footer */
-footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 2rem;
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media screen and (max-width: 992px) {
+    .fundadores-page .fundador-card,
+    .fundadores-page .fundador-card:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+
+    .fundadores-page .fundador-image {
+        min-height: 400px;
+    }
 }
 
-footer .logo {
-    margin: 0 auto 1rem;
-    background: white;
-}
+@media screen and (max-width: 768px) {
+    /* --- General --- */
+    body {
+        font-size: 16px;
+    }
 
-footer h3 {
-    margin-bottom: 0.5rem;
-}
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h1,
+    .page-hero-content h1 {
+        font-size: 2rem;
+    }
 
-footer p {
-    margin-bottom: 0.5rem;
-    opacity: 0.8;
-}
+    .page-hero-content p {
+        font-size: 1rem;
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
+    /* --- Navegación --- */
     .menu-toggle {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    nav ul.active {
         display: flex;
     }
 
-    .hero h1 {
-        font-size: 1.8rem;
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 80px; /* Altura de la navbar */
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
-    .cards-grid {
-        grid-template-columns: 1fr;
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        padding: 15px 0;
     }
 
-    .proyecto-card {
-        grid-template-columns: 1fr;
-    }
-
-    .contacto-grid {
-        grid-template-columns: 1fr;
-    }
-
+    /* --- Grids --- */
+    .image-gallery,
+    .objetivos-grid,
+    .galeria-item,
+    .galeria-item.reverse,
+    .valores-fundadores,
+    .omv-grid,
+    .valores-grid,
+    .proyecto-card,
+    .contacto-grid,
     .fundadores-grid {
         grid-template-columns: 1fr;
     }
 
-    .objetivos-grid {
-        grid-template-columns: 1fr;
+    .galeria-item.reverse img,
+    .galeria-item.reverse .galeria-content,
+    .fundadores-page .fundador-card:nth-child(even) .fundador-image,
+    .fundadores-page .fundador-card:nth-child(even) .fundador-info {
+        order: initial;
+    }
+
+    .galeria-thumbnails {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* --- Secciones Específicas --- */
+    .intro-section,
+    .omv-card,
+    .como-nace-section,
+    .cta-section,
+    .fundadores-page .fundador-info {
+        padding: 30px 20px;
+    }
+    
+    .fundadores-page .fundador-info h2,
+    .omv-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .como-nace-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    /* --- Footer --- */
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-left {
+        flex-direction: column;
+    }
+    
+    .footer-right,
+    .social-icons,
+    .contact-info {
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .galeria-thumbnails {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .proyecto-card {
+        gap: 0;
+    }
+
+    .proyecto-image {
+        min-height: 200px;
+    }
+    
+    .proyecto-content {
+        padding: 1.5rem;
     }
 }
 
