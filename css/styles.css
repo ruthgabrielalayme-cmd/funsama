@@ -310,6 +310,8 @@ body {
     font-size: 1.1rem;
     margin-bottom: 20px;
     font-weight: 500;
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Fallback for older browsers */
 }
 
 .galeria-content p {
@@ -1181,6 +1183,10 @@ footer {
     }
 
     /* --- Footer --- */
+    footer {
+        padding: 30px 20px;
+    }
+
     .footer-content {
         flex-direction: column;
         gap: 30px;
